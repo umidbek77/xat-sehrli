@@ -1,0 +1,637 @@
+<!doctype html>
+<html lang="uz">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <title>Senga atalgan sehrli maktub ✨</title>
+    <style>
+      @import url("https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600;700&family=Great+Vibes&display=swap");
+      :root {
+        --gold: #e8c77a;
+        --silver: #d9dfe9;
+        --ink: #21172c;
+      }
+      * {
+        box-sizing: border-box;
+      }
+      html,
+      body {
+        margin: 0;
+        min-height: 100%;
+        color: #fff;
+        background: #090817;
+        font-family: "Cormorant Garamond", serif;
+      }
+      body {
+        overflow-x: hidden;
+        background: radial-gradient(
+          ellipse at 50% 28%,
+          #39224b 0,
+          #171329 42%,
+          #070812 100%
+        );
+        min-height: 100vh;
+      }
+      .stars,
+      .stars:before,
+      .stars:after {
+        position: fixed;
+        inset: 0;
+        pointer-events: none;
+        content: "";
+        background-image:
+          radial-gradient(1px 1px at 10% 20%, #fff 99%, transparent),
+          radial-gradient(1px 1px at 70% 18%, #f7df9b 99%, transparent),
+          radial-gradient(2px 2px at 82% 60%, #fff 99%, transparent),
+          radial-gradient(1px 1px at 28% 72%, #fff 99%, transparent),
+          radial-gradient(1px 1px at 53% 42%, #e9d5ff 99%, transparent),
+          radial-gradient(1px 1px at 90% 32%, #fff 99%, transparent);
+        background-size: 370px 300px;
+        opacity: 0.65;
+        animation: twinkle 5s infinite alternate;
+      }
+      .stars:before {
+        transform: translate(70px, 30px);
+        opacity: 0.55;
+      }
+      .stars:after {
+        transform: translate(-40px, 90px);
+        opacity: 0.3;
+      }
+      @keyframes twinkle {
+        to {
+          opacity: 0.25;
+        }
+      }
+      .wrap {
+        position: relative;
+        z-index: 1;
+        min-height: 100vh;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        padding: 35px 18px 55px;
+        text-align: center;
+      }
+      .eyebrow {
+        letter-spacing: 0.32em;
+        text-transform: uppercase;
+        color: #e7d7ae;
+        font-size: 12px;
+        margin: 0 0 15px;
+      }
+      .heading {
+        font-family: "Great Vibes", cursive;
+        font-size: clamp(38px, 7vw, 68px);
+        font-weight: 400;
+        margin: 0 0 8px;
+        text-shadow: 0 0 25px #f2cf8a66;
+      }
+      .sub {
+        color: #c9bfd6;
+        font-size: 18px;
+        margin: 0 0 27px;
+      }
+      .scene {
+        width: min(520px, 95vw);
+        height: 330px;
+        position: relative;
+        perspective: 1000px;
+        display: grid;
+        place-items: center;
+        margin: 0 auto 18px;
+      }
+      .glow {
+        position: absolute;
+        width: 240px;
+        height: 230px;
+        border-radius: 50%;
+        background: #ffe6a5;
+        filter: blur(65px);
+        opacity: 0;
+        transition: opacity 1.2s;
+      }
+      .envelope {
+        position: relative;
+        width: min(360px, 82vw);
+        height: 218px;
+        cursor: pointer;
+        filter: drop-shadow(0 22px 30px #0008);
+        transition: transform 0.7s;
+      }
+      .env-back {
+        position: absolute;
+        inset: 0;
+        background: linear-gradient(135deg, #e8d7b2, #9d7c45 45%, #f2dfb8);
+        border: 1px solid #f5e5bd;
+        border-radius: 4px;
+      }
+      .paper {
+        position: absolute;
+        left: 8%;
+        right: 8%;
+        bottom: 8px;
+        height: 175px;
+        background: linear-gradient(135deg, #fff8e7, #e9dfc9);
+        color: #60472d;
+        transition: transform 1.3s cubic-bezier(0.2, 0.8, 0.2, 1);
+        box-shadow: 0 0 18px #0002;
+        display: grid;
+        place-items: center;
+        font-family: "Great Vibes", cursive;
+        font-size: 32px;
+      }
+      .flap {
+        position: absolute;
+        inset: 0;
+        background: linear-gradient(145deg, #f7e8c8, #b58c4f);
+        clip-path: polygon(0 0, 100% 0, 50% 64%);
+        transform-origin: top;
+        transition: transform 0.9s;
+        z-index: 4;
+        border-top: 1px solid #fff0c8;
+      }
+      .front {
+        position: absolute;
+        inset: 0;
+        background: linear-gradient(145deg, #f2dfb7, #c5a46a 60%, #f8e8c3);
+        clip-path: polygon(0 0, 50% 58%, 100% 0, 100% 100%, 0 100%);
+        z-index: 3;
+      }
+      .sidefold {
+        position: absolute;
+        inset: 0;
+        background: linear-gradient(90deg, #c6a66a, #f3e3bd, #b38b4f);
+        clip-path: polygon(0 0, 50% 58%, 0 100%);
+        z-index: 2;
+      }
+      .sidefold.r {
+        clip-path: polygon(100% 0, 50% 58%, 100% 100%);
+      }
+      .seal {
+        position: absolute;
+        z-index: 5;
+        left: 50%;
+        top: 54%;
+        transform: translate(-50%, -50%);
+        width: 62px;
+        height: 62px;
+        border-radius: 50%;
+        display: grid;
+        place-items: center;
+        background: radial-gradient(
+          circle at 35% 30%,
+          #fff1b5,
+          #a82939 55%,
+          #641a2d
+        );
+        border: 2px solid #f4dca0;
+        box-shadow:
+          0 0 0 3px #c6a66a,
+          0 3px 9px #462020;
+        color: #ffe8ac;
+        font-size: 27px;
+        transition: opacity 0.3s;
+      }
+      .thread {
+        position: absolute;
+        z-index: 6;
+        left: 50%;
+        top: 48%;
+        height: 80px;
+        width: 2px;
+        background: linear-gradient(#f8e7b9, #a78142);
+        transform: rotate(45deg);
+        opacity: 0.8;
+      }
+      .candle {
+        position: absolute;
+        bottom: 4px;
+        width: 22px;
+        height: 76px;
+        background: linear-gradient(90deg, #bfa36b, #fff2cc, #b58f4c);
+        border-radius: 4px 4px 2px 2px;
+        box-shadow: 0 0 30px #ffce7755;
+      }
+      .candle:before {
+        content: "";
+        position: absolute;
+        top: -22px;
+        left: 5px;
+        width: 12px;
+        height: 24px;
+        background: radial-gradient(
+          ellipse at 50% 70%,
+          #fff9ca 0 15%,
+          #ffcb5b 35%,
+          #ff743d 65%,
+          transparent 72%
+        );
+        filter: drop-shadow(0 0 10px #ffc35c);
+        border-radius: 50% 50% 45% 45%;
+        animation: flame 0.8s infinite alternate;
+      }
+      .candle.left {
+        left: 5%;
+      }
+      .candle.right {
+        right: 5%;
+      }
+      @keyframes flame {
+        to {
+          transform: scale(0.85, 1.12) rotate(4deg);
+        }
+      }
+      .hint {
+        font-size: 15px;
+        color: #d9cba9;
+        letter-spacing: 0.08em;
+        animation: pulse 2s infinite;
+      }
+      @keyframes pulse {
+        50% {
+          opacity: 0.55;
+        }
+      }
+      .open-btn {
+        margin-top: 12px;
+        border: 1px solid #e8d19b;
+        border-radius: 99px;
+        background: linear-gradient(120deg, #f2dca9, #b88a49);
+        color: #2d1c28;
+        padding: 13px 27px;
+        font:
+          600 16px "Cormorant Garamond",
+          serif;
+        letter-spacing: 0.06em;
+        cursor: pointer;
+        box-shadow: 0 0 22px #d7b56d35;
+        transition: transform 0.2s;
+      }
+      .open-btn:hover {
+        transform: translateY(-2px);
+      }
+      .letter {
+        width: min(680px, 94vw);
+        max-height: 0;
+        overflow: hidden;
+        opacity: 0;
+        transform: translateY(25px);
+        transition:
+          max-height 2s,
+          opacity 1.3s,
+          transform 1.2s;
+        background: linear-gradient(145deg, #fff8e8, #e8dcc4);
+        color: #443044;
+        border: 1px solid #e8ce91;
+        box-shadow:
+          0 0 70px #ffe3a855,
+          0 0 0 5px #d8bd7c22;
+        border-radius: 4px;
+        text-align: left;
+      }
+      .letter-inner {
+        padding: clamp(24px, 6vw, 48px);
+        font-size: 21px;
+        line-height: 1.65;
+      }
+      .letter h2 {
+        font-family: "Great Vibes", cursive;
+        font-weight: 400;
+        font-size: 45px;
+        color: #80552c;
+        text-align: center;
+        margin: 0 0 20px;
+      }
+      .letter p {
+        margin: 0 0 16px;
+      }
+      .letter .sign {
+        text-align: right;
+        font-family: "Great Vibes", cursive;
+        font-size: 31px;
+        color: #8a5b34;
+        margin-top: 22px;
+      }
+      .opened .glow {
+        opacity: 0.75;
+      }
+      .opened .flap {
+        transform: rotateX(180deg);
+        z-index: 1;
+      }
+      .opened .seal,
+      .opened .thread {
+        opacity: 0;
+      }
+      .opened .paper {
+        transform: translateY(-150px);
+        transition-delay: 0.25s;
+      }
+      .opened .envelope {
+        transform: translateY(8px) scale(0.93);
+        opacity: 0.72;
+      }
+      .opened .letter {
+        max-height: 1300px;
+        opacity: 1;
+        transform: translateY(0);
+        margin: 8px auto 25px;
+      }
+      .dove {
+        position: fixed;
+        z-index: 10;
+        top: 48%;
+        font-size: 34px;
+        opacity: 0;
+        pointer-events: none;
+        filter: drop-shadow(0 0 12px #fff);
+        color: #fff;
+      }
+      .opened .dove {
+        animation: fly 3.3s ease-out forwards;
+      }
+      .dove.one {
+        left: 50%;
+        --dx: -48vw;
+        --dy: -24vh;
+      }
+      .dove.two {
+        left: 50%;
+        --dx: 48vw;
+        --dy: -28vh;
+        animation-delay: 0.15s;
+      }
+      @keyframes fly {
+        0% {
+          opacity: 0;
+          transform: translate(-50%, 0) scale(0.4) rotate(0);
+        }
+        15% {
+          opacity: 1;
+        }
+        100% {
+          opacity: 0;
+          transform: translate(var(--dx), var(--dy)) scale(1.6) rotate(20deg);
+        }
+      }
+      .spark {
+        position: fixed;
+        z-index: 8;
+        pointer-events: none;
+        width: 6px;
+        height: 6px;
+        background: #fff4be;
+        border-radius: 50%;
+        box-shadow: 0 0 12px 4px #ffdd88;
+        animation: sparkle 1.8s ease-out forwards;
+      }
+      @keyframes sparkle {
+        to {
+          transform: translate(var(--x), var(--y)) scale(0);
+          opacity: 0;
+        }
+      }
+      .controls {
+        display: flex;
+        gap: 10px;
+        justify-content: center;
+        align-items: center;
+        flex-wrap: wrap;
+        margin-top: 17px;
+      }
+      .small {
+        border: 1px solid #88779c;
+        background: #1a162b;
+        color: #e8d8ad;
+        border-radius: 99px;
+        padding: 9px 14px;
+        cursor: pointer;
+        font:
+          14px "Cormorant Garamond",
+          serif;
+      }
+      .footer {
+        margin-top: 24px;
+        font-size: 13px;
+        color: #9186a1;
+        letter-spacing: 0.12em;
+      }
+      .hidden {
+        display: none !important;
+      }
+      @media (max-width: 480px) {
+        .scene {
+          height: 290px;
+        }
+        .envelope {
+          height: 190px;
+        }
+        .letter-inner {
+          font-size: 19px;
+        }
+        .candle {
+          height: 60px;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <div class="stars"></div>
+    <main class="wrap" id="app">
+      <p class="eyebrow">✧ Faqat sen uchun, qalbimdan ✧</p>
+      <h1 class="heading">Senga atalgan sehrli maktub</h1>
+      <p class="sub">Ba’zi tuyg‘ular oddiy so‘zlarga sig‘maydi…</p>
+      <div class="scene" id="scene">
+        <div class="glow"></div>
+        <div class="candle left"></div>
+        <div class="candle right"></div>
+        <div
+          class="envelope"
+          id="envelope"
+          role="button"
+          tabindex="0"
+          aria-label="Maktubni ochish"
+        >
+          <div class="env-back"></div>
+          <div class="paper">Senga… mehr bilan ♡</div>
+          <div class="sidefold"></div>
+          <div class="sidefold r"></div>
+          <div class="front"></div>
+          <div class="flap"></div>
+          <div class="thread"></div>
+          <div class="seal">♥</div>
+        </div>
+      </div>
+      <div class="hint" id="hint">
+        ✦ Muhrni bos… ichida senga atalgan mo‘jiza bor ✦
+      </div>
+      <button class="open-btn" id="open">Maktubni ochish ✨</button>
+      <div class="dove one">🕊</div>
+      <div class="dove two">🕊</div>
+      <section class="letter" id="letter">
+        <div class="letter-inner">
+          <h2>Ko‘nglimdagi eng go‘zal insonga…</h2>
+          <p>
+            Bilasanmi, ba’zan kunning eng oddiy lahzasi ham bir inson sabab
+            chiroyli bo‘lib ketadi. Men uchun o‘sha inson — sensan. ✨
+          </p>
+          <p>
+            Sening tim-qora ko‘zlaringda bir olam sir, jiddiy nigohing ortida
+            esa ko‘ngilni yayratadigan shirin bir quvnoqlik bor. Sen
+            kulganingda, go‘yo dunyo biroz yorishadi. Hatto indamay turganing
+            ham o‘zgacha yoqimli… chunki bu — <em>sening</em> sukuting.
+          </p>
+          <p>
+            Bugun senga shunchaki bir narsani eslatmoqchiman: sen qadrlisan. Sen
+            mehrga, chiroyli so‘zlarga, samimiy tabassumga va ko‘nglingni yengil
+            qiladigan kunlarga loyiqsan. Agar bugun nimadandir charchagan
+            bo‘lsang, bir zum hammasini qo‘yib, chuqur nafas ol. O‘zingga
+            mehribon bo‘l. Sen hamisha hamma narsani uddalashing shart emas —
+            ba’zan shunchaki bor bo‘lishingning o‘zi kifoya. 🤍
+          </p>
+          <p>
+            Men seni faqat quvnoq paytlaring uchungina emas, nozik ko‘ngling,
+            o‘ychanliging, ba’zan tez ranjib qolishing va o‘zingga xos barcha
+            mayda jihatlaring bilan ham yaxshi ko‘raman. Men uchun muhabbat —
+            seni o‘zgartirish emas, seni tushunishga intilish; kayfiyatingni
+            ko‘tarish, kulgingga sabab bo‘lish va qalbingga tinchlik tilashdir.
+          </p>
+          <p>
+            Qaniydi, hozir shu maktub ichidan uchib chiqqan kabutarlar senga bir
+            quchoq iliqlik olib borishsa, shamlar esa barcha g‘amlaringni bir
+            zumga yoritib yuborsa… ✨ Agar men yoningda bo‘lganimda, senga mayin
+            tabassum bilan: “Hammasi yaxshi bo‘ladi, go‘zalim. Bugun ham sening
+            tabassuming uchun bir sabab topamiz”, derdim.
+          </p>
+          <p>
+            Shuni unutma: sening tabassuming — men ko‘rishni istaydigan eng
+            chiroyli manzaralardan biri. O‘zingni asra, ko‘nglingni ehtiyot qil
+            va hech qachon o‘zingdagi nurga shubha qilma. Dunyo ba’zan shovqinli
+            bo‘lishi mumkin, ammo sening ichingdagi go‘zallik undan ham
+            balandroq porlaydi.
+          </p>
+          <p>
+            Bu kichkina maktub senga virtual quchoq, peshonangga mayin o‘pich va
+            “yaxshi ham borsan” degan samimiy pichirlash bo‘lib yetsin. Bugun
+            hech bo‘lmasa bir marta, chin dildan kulib qo‘y — o‘sha tabassum
+            senga juda yarashadi. 💛
+          </p>
+          <p class="sign">Seni juda yaxshi ko‘radigan insondan… ♡</p>
+        </div>
+      </section>
+      <div class="controls">
+        <button class="small" id="music">♫ Mayin musiqani yoqish</button
+        ><button class="small" id="again">↻ Mo‘jizani yana ko‘rish</button>
+      </div>
+      <p class="footer">OLTIN MUHR • SAMIMIY TUYG‘ULAR • FAQAT SENGA</p>
+    </main>
+    <script>
+      const app = document.getElementById("app"),
+        openBtn = document.getElementById("open"),
+        env = document.getElementById("envelope"),
+        hint = document.getElementById("hint"),
+        musicBtn = document.getElementById("music");
+      let opened = false,
+        ctx = null,
+        playing = false,
+        notesTimer = null;
+      function sparkles() {
+        for (let i = 0; i < 65; i++) {
+          const s = document.createElement("i");
+          s.className = "spark";
+          s.style.left = 45 + Math.random() * 10 + "%";
+          s.style.top = 35 + Math.random() * 28 + "%";
+          s.style.setProperty(
+            "--x",
+            (Math.random() - 0.5) * innerWidth * 0.95 + "px",
+          );
+          s.style.setProperty(
+            "--y",
+            (Math.random() - 0.65) * innerHeight * 0.85 + "px",
+          );
+          s.style.animationDelay = Math.random() * 0.7 + "s";
+          document.body.appendChild(s);
+          setTimeout(() => s.remove(), 2600);
+        }
+      }
+      function openLetter() {
+        if (opened) return;
+        opened = true;
+        app.classList.add("opened");
+        hint.textContent =
+          "✧ Bu maktubdagi har bir so‘z senga mehr bilan yozildi ✧";
+        openBtn.classList.add("hidden");
+        sparkles();
+        setTimeout(
+          () =>
+            document
+              .getElementById("letter")
+              .scrollIntoView({ behavior: "smooth", block: "start" }),
+          950,
+        );
+      }
+      openBtn.addEventListener("click", openLetter);
+      env.addEventListener("click", openLetter);
+      env.addEventListener("keydown", (e) => {
+        if (e.key === "Enter" || e.key === " ") {
+          e.preventDefault();
+          openLetter();
+        }
+      });
+      document.getElementById("again").addEventListener("click", () => {
+        opened = false;
+        app.classList.remove("opened");
+        openBtn.classList.remove("hidden");
+        hint.textContent = "✦ Muhrni bos… ichida senga atalgan mo‘jiza bor ✦";
+        document
+          .getElementById("scene")
+          .scrollIntoView({ behavior: "smooth", block: "center" });
+      });
+      // Gentle original ambient tones generated locally; no audio download required.
+      function playNote(freq, start, dur, vol = 0.025) {
+        const osc = ctx.createOscillator(),
+          gain = ctx.createGain();
+        osc.type = "sine";
+        osc.frequency.value = freq;
+        gain.gain.setValueAtTime(0.0001, start);
+        gain.gain.exponentialRampToValueAtTime(vol, start + 0.22);
+        gain.gain.exponentialRampToValueAtTime(0.0001, start + dur);
+        osc.connect(gain);
+        gain.connect(ctx.destination);
+        osc.start(start);
+        osc.stop(start + dur + 0.05);
+      }
+      function melody() {
+        if (!playing) return;
+        const now = ctx.currentTime;
+        [
+          [392, 0],
+          [523, 0.65],
+          [659, 1.3],
+          [523, 2],
+          [440, 2.7],
+          [587, 3.4],
+          [494, 4.1],
+          [392, 4.8],
+        ].forEach((n) => playNote(n[0], now + n[1], 2.3, 0.018));
+        notesTimer = setTimeout(melody, 6500);
+      }
+      musicBtn.addEventListener("click", async () => {
+        if (!playing) {
+          ctx = ctx || new (window.AudioContext || window.webkitAudioContext)();
+          await ctx.resume();
+          playing = true;
+          musicBtn.textContent = "♫ Mayin musiqani o‘chirish";
+          melody();
+        } else {
+          playing = false;
+          clearTimeout(notesTimer);
+          if (ctx) await ctx.suspend();
+          musicBtn.textContent = "♫ Mayin musiqani yoqish";
+        }
+      });
+    </script>
+  </body>
+</html>
